@@ -51,4 +51,4 @@ Buka http://localhost:3000 — coba juga http://localhost:3000/?to=Nama+Tamu dan
 
 ---
 
-Bagian dari koleksi 8 undangan digital di [PortalUndangan](https://www.pintuweb.com/undangan-digital). Dibuat oleh [PintuWeb](https://www.pintuweb.com), jasa pembuatan website.
+Bagian dari koleksi 8 undangan digital di [PortalUndangan](https://www.pintuweb.id/undangan-digital). Dibuat oleh [PintuWeb](https://www.pintuweb.id), jasa pembuatan website.
