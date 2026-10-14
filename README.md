@@ -2,7 +2,7 @@
 
 Scrapbook retro: sampul album dengan tumpukan polaroid, kilas balik angkatan, album kenangan, dinding “Sudah Hadir”, dan cerita lama dari teman-teman.
 
-**Demo live:** https://undangan-reuni-livid.vercel.app
+**Demo live:** https://undangan-reuni.pintuweb.id
 
 ![Tangkapan layar](public/og.jpg)
 

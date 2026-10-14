@@ -1,5 +1,5 @@
 export default function sitemap() {
   return [
-    { url: "https://undangan-reuni-livid.vercel.app", lastModified: new Date(), changeFrequency: "monthly", priority: 1 },
+    { url: "https://undangan-reuni.pintuweb.id", lastModified: new Date(), changeFrequency: "monthly", priority: 1 },
   ];
 }

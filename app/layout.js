@@ -24,7 +24,7 @@ const body = Karla({
 const __jsonld = {"@context":"https://schema.org","@type":"WebSite","name":"Undangan Reuni Digital — Angkatan 2010 SMA Kencana Mulia","description":"Contoh undangan reuni digital bergaya scrapbook: kilas balik, album polaroid, dinding sudah hadir, cerita kenangan, dan musik latar.","inLanguage":"id"};
 
 export const metadata = {
-  metadataBase: new URL("https://undangan-reuni-livid.vercel.app"),
+  metadataBase: new URL("https://undangan-reuni.pintuweb.id"),
   title: "Undangan Reuni Digital — Angkatan 2010 SMA Kencana Mulia",
   description: "Undangan reuni akbar digital yang nostalgik. Kumpul kembali, kenang masa sekolah, dan konfirmasi kehadiran dalam satu tautan.",
   applicationName: "Undangan Digital",
@@ -32,11 +32,11 @@ export const metadata = {
   authors: [{ name: "Undangan Digital" }],
   creator: "Undangan Digital",
   publisher: "Undangan Digital",
-  alternates: { canonical: "https://undangan-reuni-livid.vercel.app" },
+  alternates: { canonical: "https://undangan-reuni.pintuweb.id" },
   openGraph: {
     type: "website",
     locale: "id_ID",
-    url: "https://undangan-reuni-livid.vercel.app",
+    url: "https://undangan-reuni.pintuweb.id",
     siteName: "Undangan Digital",
     title: "Undangan Reuni Digital — Angkatan 2010 SMA Kencana Mulia",
     description: "Undangan reuni akbar digital yang nostalgik. Kumpul kembali, kenang masa sekolah, dan konfirmasi kehadiran dalam satu tautan.",
