@@ -65,6 +65,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="id" className={`${display.variable} ${script.variable} ${body.variable}`}>
       <body className="antialiased">{children}<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(__jsonld) }} />
+        <aside aria-label="Tentang situs demo ini" style={{ display: 'block', margin: 0, padding: '12px 76px', background: '#0f1b33', color: '#dfe6f3', font: '400 13px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif', textAlign: 'center' }}>
+          Situs demo buatan PintuWeb — nama dan isinya rekaan.{' '}
+          <a href="https://www.pintuweb.id/kontak?demo=reuni" style={{ color: '#ffffff', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: '3px' }}>Buat yang seperti ini →</a>
+        </aside>
         </body>
     </html>
   );
