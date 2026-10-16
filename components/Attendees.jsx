@@ -36,24 +36,25 @@ export default function Attendees() {
 
         {/* Form RSVP */}
         <Reveal delay={0.1} className="mx-auto mt-8 max-w-md">
+          <label htmlFor="hadir-nama" className="mb-2 block text-center text-xs font-bold uppercase tracking-wide text-muted">Konfirmasi hadir</label>
           <form onSubmit={submit} className="flex flex-col gap-3 sm:flex-row">
             <input
-              aria-label="Namamu"
+              id="hadir-nama"
+              autoComplete="name"
+              maxLength={60}
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Tulis namamu..."
               className="w-full rounded-full border-2 border-rose-deep/30 bg-cream px-5 py-3 text-sm font-semibold outline-none focus:border-rose"
               required
             />
-            <button type="submit" className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-rose px-6 py-3 text-sm font-bold text-cream transition hover:bg-rose-deep">
+            <button type="submit" className="inline-flex min-h-12 shrink-0 items-center justify-center gap-2 rounded-full bg-rose px-6 py-3 text-sm font-bold text-cream transition hover:bg-rose-deep">
               <UserPlus size={16} aria-hidden="true" /> Saya Hadir!
             </button>
           </form>
-          {justAdded && (
-            <p className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-rose">
-              <Check size={15} /> Asik, namamu sudah ditempel di dinding!
-            </p>
-          )}
+          <p className="mt-3 flex min-h-5 items-center justify-center gap-1.5 text-sm font-semibold text-rose" role="status">
+            {justAdded && (<><Check size={15} aria-hidden="true" /> Asik, namamu sudah ditempel di dinding!</>)}
+          </p>
           {list.length > initial.length && (
             <p className="mt-2 text-xs font-semibold text-muted">
               Ini undangan contoh, jadi namamu hanya tampil di layarmu sendiri.

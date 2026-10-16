@@ -7,7 +7,7 @@ export default function Throwback() {
   return (
     <section className="relative z-10 px-6 py-20">
       <Reveal className="text-center">
-        <p className="font-script text-3xl text-rose-deep sm:text-4xl">Throwback</p>
+        <p className="font-script text-3xl text-rose-deep sm:text-4xl">Ingat nggak?</p>
         <h2 className="mt-1 font-display text-3xl text-rose">Kilas Balik</h2>
       </Reveal>
 

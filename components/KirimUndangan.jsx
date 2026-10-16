@@ -22,10 +22,13 @@ function SalinTombol({ teks, label, className }) {
     }
   };
   return (
-    <button type="button" onClick={salin} className={className}>
-      {ok ? <Check size={14} aria-hidden="true" /> : <Copy size={14} aria-hidden="true" />}
-      {ok ? 'Tersalin' : label}
-    </button>
+    <>
+      <button type="button" onClick={salin} className={className}>
+        {ok ? <Check size={14} aria-hidden="true" /> : <Copy size={14} aria-hidden="true" />}
+        {ok ? 'Tersalin' : label}
+      </button>
+      <span className="sr-only" aria-live="polite">{ok ? 'Tersalin ke papan klip' : ''}</span>
+    </>
   );
 }
 
@@ -61,7 +64,7 @@ export default function KirimUndangan() {
   return (
     <main className="min-h-screen bg-cream px-5 py-14 text-ink">
       <div className="mx-auto max-w-2xl">
-        <Link href="/" className="inline-flex items-center gap-2 text-sm font-medium text-rose-deep underline-offset-4 hover:underline">
+        <Link href="/" className="inline-flex items-center gap-2 py-2.5 text-sm font-medium text-rose-deep underline-offset-4 hover:underline">
           <ArrowLeft size={16} aria-hidden="true" /> Kembali ke album
         </Link>
 
@@ -80,7 +83,7 @@ export default function KirimUndangan() {
             <label htmlFor="isi-pesan" className="text-sm font-semibold text-ink">Isi pesan</label>
             <p className="mt-1 text-xs text-muted">Pakai {'{nama}'} untuk nama tamu dan {'{tautan}'} untuk tautan undangannya.</p>
             <textarea id="isi-pesan" rows={7} value={pesan} onChange={(e) => setPesan(e.target.value)} className="mt-2 w-full rounded-xl border border-rose/40 bg-cream px-4 py-3 text-sm text-ink outline-none focus:border-rose-deep" />
-            <button type="button" onClick={() => setPesan(config.kirim.pesan)} className="mt-3 text-xs font-medium underline underline-offset-4 opacity-80 hover:opacity-100">
+            <button type="button" onClick={() => setPesan(config.kirim.pesan)} className="mt-2 py-2 text-xs font-medium underline underline-offset-4 opacity-80 hover:opacity-100">
               Kembalikan pesan bawaan
             </button>
           </div>
@@ -95,7 +98,7 @@ export default function KirimUndangan() {
           {!siap ? (
             <p className="mt-1 text-xs text-muted">Menyiapkan tautan…</p>
           ) : nama.length === 0 ? (
-            <p className="mt-3 mt-1 text-xs text-muted">Belum ada nama. Ketik minimal satu nama tamu di atas.</p>
+            <p className="mt-3 text-xs text-muted">Belum ada nama. Ketik minimal satu nama tamu di atas.</p>
           ) : (
             <ul className="mt-4 space-y-3">
               {nama.map((n) => (

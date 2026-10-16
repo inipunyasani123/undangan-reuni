@@ -57,11 +57,30 @@ body {
 @keyframes floaty { 0%,100% { transform: translateY(0) rotate(var(--r,0deg)); } 50% { transform: translateY(-10px) rotate(var(--r,0deg)); } }
 .animate-floaty { animation: floaty 5s ease-in-out infinite; }
 
+/* Animasi masuk sampul memakai CSS: jalan sejak cat pertama tanpa menunggu JavaScript,
+   jadi teks utama sampul (elemen LCP) tidak tertahan opacity 0 sampai halaman terhidrasi. */
+@keyframes masuk { from { opacity: 0; transform: translateY(14px); } }
+@keyframes masuk-skala { from { transform: scale(0.96); } }
+.masuk { animation: masuk 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both; animation-delay: var(--tunda, 0s); }
+.masuk-skala { animation: masuk-skala 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+
+/* Sampul keluar (dulu framer-motion; kini CSS supaya sampul tidak memerlukan pustaka animasi).
+   Halaman menunggu animationend sebelum melepas sampul. */
+.sampul-keluar { animation: sampul-keluar 0.7s ease-in-out forwards; pointer-events: none; }
+@keyframes sampul-keluar { to { opacity: 0; transform: scale(1.06); } }
+
+/* Selama sampul terbuka, bilah demo di akhir <body> tertutup sampul. Sembunyikan juga dari
+   papan ketik & pembaca layar supaya fokus tidak jatuh ke tautan yang tak terlihat. */
+body:has([data-sampul]) > aside[aria-label="Tentang situs demo ini"] { visibility: hidden; }
+
 :focus-visible { outline: 3px solid var(--color-rose); outline-offset: 2px; }
+/* Target fokus terprogram (bukan kontrol, tidak bisa dicapai lewat Tab) tidak perlu cincin. */
+[tabindex="-1"]:focus-visible { outline: none; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.001ms !important;
+    animation-delay: 0s !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;

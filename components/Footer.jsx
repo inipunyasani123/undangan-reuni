@@ -39,7 +39,7 @@ export default function Footer() {
           </p>
         )}
         <p className="mt-2 text-xs font-semibold text-cream/80">
-          <Link href="/kirim" className="underline underline-offset-4 hover:text-gold">Ajak teman seangkatan</Link>
+          <Link href="/kirim" className="inline-block py-2 underline underline-offset-4 hover:text-gold">Ajak teman seangkatan</Link>
         </p>
       </Reveal>
     </footer>

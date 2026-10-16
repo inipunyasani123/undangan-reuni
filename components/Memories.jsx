@@ -18,11 +18,12 @@ export default function Memories() {
   const submit = (e) => {
     e.preventDefault();
     if (!form.name.trim() || !form.message.trim()) return;
-    setItems((p) => [{ id: Date.now(), ...form }, ...p]);
+    setItems((p) => [{ id: Date.now(), name: form.name.trim(), message: form.message.trim() }, ...p]);
     setForm({ name: '', message: '' });
   };
 
   const field = 'w-full rounded-lg border-2 border-rose-deep/25 bg-cream px-4 py-3 text-sm font-semibold outline-none focus:border-rose';
+  const lab = 'mb-1 block text-xs font-bold uppercase tracking-wide text-muted';
 
   return (
     <section className="relative z-10 bg-blush/40 px-6 py-20">
@@ -34,15 +35,21 @@ export default function Memories() {
 
         <Reveal delay={0.1} className="mx-auto mt-8 max-w-md">
           <form onSubmit={submit} className="space-y-3">
-            <input aria-label="Namamu" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Namamu" className={field} required />
-            <textarea aria-label="Kenangan paling berkesan" value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} placeholder="Tulis kenangan paling berkesan..." rows={3} className={`${field} resize-none`} required />
+            <div>
+              <label htmlFor="kenangan-nama" className={lab}>Nama</label>
+              <input id="kenangan-nama" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Namamu" autoComplete="name" maxLength={60} className={field} required />
+            </div>
+            <div>
+              <label htmlFor="kenangan-pesan" className={lab}>Kenangan paling berkesan</label>
+              <textarea id="kenangan-pesan" value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} placeholder="Tulis kenangan paling berkesan…" rows={3} maxLength={500} className={`${field} resize-none`} required />
+            </div>
             <button type="submit" className="inline-flex items-center gap-2 rounded-full bg-rose px-6 py-3 text-sm font-bold text-cream transition hover:bg-rose-deep">
               <Send size={15} aria-hidden="true" /> Tempel Kenangan
             </button>
           </form>
         </Reveal>
 
-        <div className="mt-10 grid gap-4 sm:grid-cols-2">
+        <div className="mt-10 grid gap-4 sm:grid-cols-2" aria-live="polite">
           {items.map((m, i) => (
             <div key={m.id} style={{ rotate: noteRot[i % noteRot.length] }} className={`p-5 shadow-sm ${noteBg[i % noteBg.length]}`}>
               <p className="font-script text-2xl text-rose-deep">{m.name}</p>

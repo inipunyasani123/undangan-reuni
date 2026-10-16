@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 import config from '@/lib/data';
+import { useDialog } from '@/lib/hooks';
 import Reveal from './ui/Reveal';
 import Polaroid from './Polaroid';
 
@@ -13,6 +14,8 @@ const rots = ['-4deg', '3deg', '-2deg', '4deg', '-3deg', '2deg'];
 export default function PolaroidGallery() {
   const { gallery } = config;
   const [active, setActive] = useState(null);
+  const tombolTutup = useDialog(active !== null, () => setActive(null));
+  const foto = active !== null ? gallery[active] : null;
 
   return (
     <section className="relative z-10 bg-blush/40 px-6 py-20">
@@ -28,7 +31,7 @@ export default function PolaroidGallery() {
               src={g.src}
               caption={g.caption}
               rotate={rots[i % rots.length]}
-              onClick={() => setActive(g)}
+              onClick={() => setActive(i)}
               className="w-full max-w-[180px]"
             />
           </Reveal>
@@ -36,13 +39,13 @@ export default function PolaroidGallery() {
       </div>
 
       <AnimatePresence>
-        {active && (
+        {foto && (
           <motion.div
             className="fixed inset-0 z-50 flex items-center justify-center bg-ink/90 p-4"
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-            onClick={() => setActive(null)} role="dialog" aria-modal="true"
+            onClick={() => setActive(null)} role="dialog" aria-modal="true" aria-label={`Foto ${active + 1} dari ${gallery.length}: ${foto.caption}`}
           >
-            <button className="absolute right-5 top-5 text-cream" onClick={() => setActive(null)} aria-label="Tutup">
+            <button ref={tombolTutup} type="button" className="absolute right-3 top-3 flex h-11 w-11 items-center justify-center rounded-full text-cream hover:bg-cream/10" onClick={() => setActive(null)} aria-label="Tutup foto">
               <X size={28} />
             </button>
             <motion.div
@@ -52,9 +55,9 @@ export default function PolaroidGallery() {
             >
               <div className="polaroid">
                 <span className="relative block aspect-square w-full overflow-hidden bg-blush">
-                  <Image src={active.src} alt={active.caption || ''} fill sizes="100vw" className="object-cover" />
+                  <Image src={foto.src} alt={foto.caption || ''} fill sizes="(max-width: 640px) 100vw, 448px" className="object-cover" />
                 </span>
-                <p className="absolute inset-x-0 bottom-3 text-center font-script text-2xl text-ink">{active.caption}</p>
+                <p className="absolute inset-x-0 bottom-3 text-center font-script text-2xl text-ink" aria-hidden="true">{foto.caption}</p>
               </div>
             </motion.div>
           </motion.div>
