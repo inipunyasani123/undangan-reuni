@@ -55,7 +55,7 @@ export default function PolaroidGallery() {
             >
               <div className="polaroid">
                 <span className="relative block aspect-square w-full overflow-hidden bg-blush">
-                  <Image src={foto.src} alt={foto.caption || ''} fill sizes="(max-width: 640px) 100vw, 448px" className="object-cover" />
+                  <Image src={foto.src} alt={foto.alt || foto.caption || ''} fill sizes="(max-width: 640px) 100vw, 448px" className="object-cover" />
                 </span>
                 <p className="absolute inset-x-0 bottom-3 text-center font-script text-2xl text-ink" aria-hidden="true">{foto.caption}</p>
               </div>

@@ -45,7 +45,7 @@ export default function ScrapbookCover({ keluar, onOpen, onSelesai, musik, onMus
           <div className="pointer-events-none absolute inset-0">
             <div className="absolute left-0 top-6 w-32"><Polaroid src={gallery[1].src} rotate="-8deg" className="w-full" /></div>
             <div className="absolute right-2 top-3 w-32"><Polaroid src={gallery[2].src} rotate="7deg" className="w-full" /></div>
-            <div className="absolute left-1/2 top-0 w-40 -translate-x-1/2"><Polaroid src={gallery[0].src} caption="Masa SMA…" rotate="-1deg" className="w-full" /></div>
+            <div className="absolute left-1/2 top-0 w-40 -translate-x-1/2"><Polaroid src={gallery[0].src} caption="Masa SMA…" rotate="-1deg" className="w-full" priority /></div>
           </div>
         </div>
 

@@ -6,7 +6,7 @@ Scrapbook retro: sampul album dengan tumpukan polaroid, kilas balik angkatan, al
 
 ![Tangkapan layar](public/og.jpg)
 
-> Contoh dengan data fiktif: nama, tempat, dan nomor rekening tidak sungguhan. Formulir hanya demo dan mengatakannya terus terang. Foto adalah placeholder berlabel yang siap diganti.
+> Contoh dengan data fiktif: nama, tempat, dan nomor rekening tidak sungguhan. Formulir hanya demo dan mengatakannya terus terang. Gambar adalah ilustrasi bergaya cetak risograf buatan sendiri yang siap diganti foto kenangan asli.
 
 ## Fitur
 
@@ -24,12 +24,12 @@ Seluruh isi ada di satu file: `lib/data.js` (nama, tanggal, acara, galeri, musik
 
 - **Tanggal:** ubah teks tanggal *dan* nilai ISO (`mainDate`, `start`, `end`) — hitung mundur dan tombol kalender memakai nilai ISO.
 - **Peta:** contoh menunjuk area kota; ganti `q=` di `location.mapEmbed` dan `mapLink` dengan nama tempat atau koordinat.
-- **Foto:** timpa berkas di `public/images/` dengan nama yang sama (potret 3:4, atau persegi untuk berkas yang memang persegi).
+- **Foto:** timpa berkas di `public/images/` dengan nama yang sama (persegi 1:1), lalu perbarui `alt` & `caption` di `lib/data.js`.
 - **Musik:** timpa `public/music/latar.mp3`, lalu ubah `music.title` dan `music.credit`. Pastikan Anda berhak memakai lagunya.
 
 ## Gambar & kredit
 
-- `public/images/*.webp` — placeholder berlabel buatan sendiri (bukan foto stok), digambar ulang dari SVG agar tidak bergantung pada layanan luar.
+- `public/images/*.webp` — ilustrasi bergaya cetak risograf (tiga tinta, butir kertas) buatan sendiri, digambar dari SVG; sekolah & tokohnya fiktif. Lihat `public/images/SUMBER.md`.
 - `public/music/latar.mp3` — *The Entertainer — Scott Joplin*, rekaman Adam Cuerden, domain publik — [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:The_Entertainer_-_1902_-_By_Scott_Joplin.ogg). Diperkecil ke MP3 mono 80 kbps.
 
 ## Teknologi
