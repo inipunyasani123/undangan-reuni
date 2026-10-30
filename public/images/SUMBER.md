@@ -9,3 +9,5 @@
 | `kenangan-6.webp` | Segelas es teh (pendekatan untuk kantin) | Allthebees, "Glass of Sweet Tea Glistening in the Light of God" | CC0 | https://commons.wikimedia.org/wiki/File:Glass_of_Sweet_Tea_Glistening_in_the_Light_of_God.jpg |
 
 Foto dipangkas persegi 1:1. Tidak ada foto orang berwajah. Sekolah dan tokohnya fiktif.
+
+30 Okt 2026: wajah pada semua ilustrasi tokoh di proyek ini dihapus (wajah polos tanpa mata, hidung, mulut) agar seragam; pose, warna, dan komposisi tetap. Varian WebP dibuat ulang lewat scripts/static-images.mjs.
